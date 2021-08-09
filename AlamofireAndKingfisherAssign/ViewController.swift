@@ -33,6 +33,16 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
            return cell
         
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(identifier: "ViewController2") as! ViewController2
+        vc.strname1 =    dataArray[indexPath.row].value(forKey: "first_name") as! String
+        vc.strname2 = dataArray[indexPath.row].value(forKey: "last_name") as! String
+        vc.stremail = dataArray[indexPath.row].value(forKey: "email") as! String
+        vc.imgpassed = dataArray[indexPath.row].value(forKey: "avatar") as! String
+        
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 
     
     
